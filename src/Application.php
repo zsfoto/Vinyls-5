@@ -54,6 +54,26 @@ class Application extends BaseApplication
                 (new TableLocator())->allowFallbackClass(false)
             );
         }
+
+		//Configure::write('DebugKit.forceEnable', true);
+		Configure::write('DebugKit.forceEnable', function() {
+			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+				$ip = $_SERVER['HTTP_CLIENT_IP'];
+			} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+				$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			} else {
+				$ip = $_SERVER['REMOTE_ADDR'];
+			}
+			return $ip === '127.0.0.1';
+			//return false;
+		});
+
+        //$this->addPlugin(\CakeDC\Users\Plugin::class);
+        //Configure::write('Users.config', ['users']);
+
+		// Load more plugins here
+		$this->addPlugin('JeffAdmin5');
+
     }
 
     /**

@@ -1969,16 +1969,16 @@
         },
         {
             "name": "zsfoto/jeffadmin5",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zsfoto/JeffAdmin5.git",
-                "reference": "919f8135db407f59de22cd03ccb74b73e1da4afd"
+                "reference": "2f896145ca12d4db2e442612699b4fb959dd7236"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zsfoto/JeffAdmin5/zipball/919f8135db407f59de22cd03ccb74b73e1da4afd",
-                "reference": "919f8135db407f59de22cd03ccb74b73e1da4afd",
+                "url": "https://api.github.com/repos/zsfoto/JeffAdmin5/zipball/2f896145ca12d4db2e442612699b4fb959dd7236",
+                "reference": "2f896145ca12d4db2e442612699b4fb959dd7236",
                 "shasum": ""
             },
             "require": {
@@ -2001,9 +2001,9 @@
             "description": "JeffAdmin5 plugin for CakePHP",
             "support": {
                 "issues": "https://github.com/zsfoto/JeffAdmin5/issues",
-                "source": "https://github.com/zsfoto/JeffAdmin5/tree/1.0.20"
+                "source": "https://github.com/zsfoto/JeffAdmin5/tree/1.0.21"
             },
-            "time": "2024-05-28T08:17:03+00:00"
+            "time": "2024-06-06T13:44:20+00:00"
         }
     ],
     "packages-dev": [

@@ -93,4 +93,13 @@ return function (RouteBuilder $routes): void {
      * });
      * ```
      */
+
+    $routes->prefix('Admin', function (RouteBuilder $builder) {
+        $builder->scope('/', function (RouteBuilder $builder) {
+            //$builder->setExtensions(['json', 'xml', 'xlsx']);
+            $builder->connect('/', ['controller' => 'Albums', 'action' => 'index']);
+            $builder->fallbacks(DashedRoute::class);
+        });
+    });
+	
 };
