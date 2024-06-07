@@ -15,6 +15,13 @@ return [
 						'controller'=> 'Albums',
 						'action' 	=> 'index',
 					],
+					[
+						'type' 		=> 'menu',
+						'icon' 		=> 'fa fa-fw fa-bars',
+						'title'		=> __('Countries'),
+						'controller'=> 'Countries',
+						'action' 	=> 'index',
+					],
 					
 					//[
 					//	'type' 		=> 'menu',

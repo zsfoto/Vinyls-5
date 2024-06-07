@@ -63,8 +63,6 @@ $config = array_merge($global_config, $local_config);
 											<th class="string artistJoin"><?= $this->Paginator->sort('artistJoin') ?></th><!-- H.1. -->
 											<th class="string anv"><?= $this->Paginator->sort('anv') ?></th><!-- H.1. -->
 											<th class="string tracks"><?= $this->Paginator->sort('tracks') ?></th><!-- H.1. -->
-											<th class="string resource-url"><?= $this->Paginator->sort('resource_url') ?></th><!-- H.1. -->
-											<th class="integer resourceId"><?= $this->Paginator->sort('resourceId') ?></th><!-- H.3. -->
 											<th class="datetime last-used"><?= $this->Paginator->sort('last_used') ?></th><!-- H.1. -->
 <?php if($config['show_pos']){ ?>
 											<th class="number pos"><?= $this->Paginator->sort('pos') ?></th>
@@ -109,8 +107,6 @@ $config = array_merge($global_config, $local_config);
 											<td class="string artistJoin" value="<?= $artist->artistJoin ?>"><?= h($artist->artistJoin) ?></td>
 											<td class="string anv" value="<?= $artist->anv ?>"><?= h($artist->anv) ?></td>
 											<td class="string tracks" value="<?= $artist->tracks ?>"><?= h($artist->tracks) ?></td>
-											<td class="string resource-url" value="<?= $artist->resource_url ?>"><?= h($artist->resource_url) ?></td>
-											<td class="integer resourceId" value="<?= $artist->resourceId ?>"><?= $this->Number->format($artist->resourceId, ['places' => 0, 'precision' => 0, 'before' => '', 'after' => '']) ?></td>
 											<td class="datetime last-used" value="<?= $artist->last_used ?>"><?= h($artist->last_used) ?></td>
 <?php if($config['show_pos']){ ?>
 											<td class="number pos" value="<?= $artist->pos ?>"><?= h($artist->pos) ?></td>

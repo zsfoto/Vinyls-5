@@ -25,7 +25,7 @@ class CountriesController extends AppController
     public function initialize(): void
     {
         parent::initialize();
-		//$this->config['paginate_limit'] = 10;		
+		$this->config['paginate_limit'] = 1000;
 	}
 
     /**

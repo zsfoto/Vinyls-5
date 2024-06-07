@@ -13,10 +13,10 @@ $global_config = (array) Configure::read('Theme.' . $prefix . '.config.template.
 $local_config = [
 	// #################################### More config params in: \JeffAdmin5\config\config.php ####################################
 	//'show_related_tables'	=> false,
-	//'show_id' 			=> false,	// for view form
+	'show_id' 			=> false,	// for view form
 	//'show_pos' 	 		=> false,	// for view form
 	//'show_counters' 		=> false,	// for view form
-	//'index_show_id' 		=> false,	// for related tables
+	'index_show_id' 		=> false,	// for related tables
 	//'index_show_visible' 	=> false,	// for related tables
 	//'index_show_counters'	=> false,	// for related tables
 ];
@@ -203,24 +203,11 @@ $config = array_merge($global_config, $local_config);
 <?php if($config['index_show_id']){ ?>
 													<th class="number id"><?= __('Id') ?></th>
 <?php } ?>
-													<th class="please-change-type ext-id"><?= __('Ext Id') ?></th>
-													<th class="please-change-type country-id"><?= __('Country Id') ?></th>
-													<th class="please-change-type artists-sort"><?= __('Artists Sort') ?></th>
+													<th class="string artists-sort"><?= __('Artists Sort') ?></th>
 													<th class="string name"><?= __('Name') ?></th>
-													<th class="please-change-type year"><?= __('Year') ?></th>
-													<th class="please-change-type lowest-price"><?= __('Lowest Price') ?></th>
-													<th class="please-change-type laci-price"><?= __('Laci Price') ?></th>
-													<th class="please-change-type released-formatted"><?= __('Released Formatted') ?></th>
-													<th class="please-change-type estimated-weight"><?= __('Estimated Weight') ?></th>
-													<th class="please-change-type released"><?= __('Released') ?></th>
-													<th class="please-change-type notes"><?= __('Notes') ?></th>
-													<th class="please-change-type url"><?= __('Url') ?></th>
-													<th class="please-change-type resource-url"><?= __('Resource Url') ?></th>
-													<th class="please-change-type master-url"><?= __('Master Url') ?></th>
-													<th class="please-change-type master-id"><?= __('Master Id') ?></th>
-													<th class="please-change-type url-src"><?= __('Url Src') ?></th>
-													<th class="please-change-type uri"><?= __('Uri') ?></th>
-													<th class="please-change-type thumb"><?= __('Thumb') ?></th>
+													<th class="string laci-price"><?= __('Laci Price') ?></th>
+													<th class="string released"><?= __('Released') ?></th>
+													<!--th class="string thumb"><?= __('Thumb') ?></th-->
 <?php if($config['index_show_counters']){ ?>
 													<th class="number user-count"><?= __('User Count') ?></th>
 <?php } ?>
@@ -230,8 +217,7 @@ $config = array_merge($global_config, $local_config);
 <?php if($config['index_show_visible']){ ?>
 													<th class="boolean visible"><?= __('Visible') ?></th>
 <?php } ?>
-													<th class="please-change-type last-used"><?= __('Last Used') ?></th>
-													<th class="please-change-type json"><?= __('Json') ?></th>
+													<!--th class="please-change-type last-used"><?= __('Last Used') ?></th-->
 <?php if($config['index_show_created']){ ?>
 													<th class="datetime created"><?= __('Created') ?></th>
 <?php } ?>
@@ -248,24 +234,11 @@ $config = array_merge($global_config, $local_config);
 <?php if($config['index_show_id']){ ?>
 													<td class="number id" value="<?= $albums->id ?>"><?= h($albums->id) ?></td>
 <?php } ?>
-													<td class="please-change-type ext-id" value="<?= $albums->ext_id ?>"><?= h($albums->ext_id) ?></td>
-													<td class="please-change-type country-id" value="<?= $albums->country_id ?>"><?= h($albums->country_id) ?></td>
-													<td class="please-change-type artists-sort" value="<?= $albums->artists_sort ?>"><?= h($albums->artists_sort) ?></td>
+													<td class="string artists-sort" value="<?= $albums->artists_sort ?>"><?= h($albums->artists_sort) ?></td>
 													<td class="string name" value="<?= $albums->name ?>"><?= h($albums->name) ?></td>
-													<td class="please-change-type year" value="<?= $albums->year ?>"><?= h($albums->year) ?></td>
-													<td class="please-change-type lowest-price" value="<?= $albums->lowest_price ?>"><?= h($albums->lowest_price) ?></td>
-													<td class="please-change-type laci-price" value="<?= $albums->laci_price ?>"><?= h($albums->laci_price) ?></td>
-													<td class="please-change-type released-formatted" value="<?= $albums->released_formatted ?>"><?= h($albums->released_formatted) ?></td>
-													<td class="please-change-type estimated-weight" value="<?= $albums->estimated_weight ?>"><?= h($albums->estimated_weight) ?></td>
-													<td class="please-change-type released" value="<?= $albums->released ?>"><?= h($albums->released) ?></td>
-													<td class="please-change-type notes" value="<?= $albums->notes ?>"><?= h($albums->notes) ?></td>
-													<td class="please-change-type url" value="<?= $albums->url ?>"><?= h($albums->url) ?></td>
-													<td class="please-change-type resource-url" value="<?= $albums->resource_url ?>"><?= h($albums->resource_url) ?></td>
-													<td class="please-change-type master-url" value="<?= $albums->master_url ?>"><?= h($albums->master_url) ?></td>
-													<td class="please-change-type master-id" value="<?= $albums->master_id ?>"><?= h($albums->master_id) ?></td>
-													<td class="please-change-type url-src" value="<?= $albums->url_src ?>"><?= h($albums->url_src) ?></td>
-													<td class="please-change-type uri" value="<?= $albums->uri ?>"><?= h($albums->uri) ?></td>
-													<td class="please-change-type thumb" value="<?= $albums->thumb ?>"><?= h($albums->thumb) ?></td>
+													<td class="string laci-price" value="<?= $albums->laci_price ?>"><?= h($albums->laci_price) ?></td>
+													<td class="string released" value="<?= $albums->released ?>"><?= h($albums->released) ?></td>
+													<!--td class="string thumb" value="<?= $albums->thumb ?>"><?= h($albums->thumb) ?></td-->
 <?php if($config['index_show_counters']){ ?>
 													<td class="number user-count" value="<?= $albums->user_count ?>"><?= h($albums->user_count) ?></td>
 <?php } ?>
@@ -275,8 +248,7 @@ $config = array_merge($global_config, $local_config);
 <?php if($config['index_show_visible']){ ?>
 													<td class="boolean visible" value="<?= $albums->visible ?>"><?= h($albums->visible) ?></td>
 <?php } ?>
-													<td class="please-change-type last-used" value="<?= $albums->last_used ?>"><?= h($albums->last_used) ?></td>
-													<td class="please-change-type json" value="<?= $albums->json ?>"><?= h($albums->json) ?></td>
+													<!--td class="datetime last-used" value="<?= $albums->last_used ?>"><?= h($albums->last_used) ?></td-->
 <?php if($config['index_show_created']){ ?>
 													<td class="datetime created" value="<?= $albums->created ?>"><?= h($albums->created) ?></td>
 <?php } ?>

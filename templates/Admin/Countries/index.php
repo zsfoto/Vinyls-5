@@ -15,6 +15,9 @@ $local_config = [
 	'show_id' 			=> true,
 	'show_pos' 			=> false,
 	'show_counters'		=> false,
+	//'show_button_view'	=> false,
+	'show_button_edit'	=> false,
+	'show_button_delete'=> false,
 	'action_db_click'	=> 'edit',	// none, edit or view
 	// ... more config params in: \JeffAdmin5\config\jeffadmin5.php
 ];
@@ -59,9 +62,8 @@ $config = array_merge($global_config, $local_config);
 <?php if($config['show_id']){ ?>
 											<th class="number id"><?= $this->Paginator->sort('id') ?></th>
 <?php } ?>
-											<th class="string name"><?= $this->Paginator->sort('name') ?></th><!-- H.1. -->
-											<th class="string name-hu"><?= $this->Paginator->sort('name_hu') ?></th><!-- H.1. -->
-											<th class="string short-name"><?= $this->Paginator->sort('short_name') ?></th><!-- H.1. -->
+											<th class="actions"><?= __('Actions') ?></th>
+											<th class="string name"><?= $this->Paginator->sort('name') ?> [<?= $this->Paginator->sort('short_name') ?>]/ <?= $this->Paginator->sort('name_hu') ?></th><!-- H.1. -->
 											<th class="datetime last-used"><?= $this->Paginator->sort('last_used') ?></th><!-- H.1. -->
 <?php if($config['show_pos']){ ?>
 											<th class="number pos"><?= $this->Paginator->sort('pos') ?></th>
@@ -85,9 +87,9 @@ $config = array_merge($global_config, $local_config);
 
 											</th>
 <?php } ?>
-<?php if($config['show_button_view'] || $config['show_button_edit'] || $config['show_button_delete'] ){ ?>
+<?php /* if($config['show_button_view'] || $config['show_button_edit'] || $config['show_button_delete'] ){ ?>
 											<th class="actions"><?= __('Actions') ?></th>
-<?php } ?>
+<?php } */ ?>
 										</tr>
 									</thead>
 									<tbody>
@@ -102,9 +104,15 @@ $config = array_merge($global_config, $local_config);
 <?php if($config['show_id']){ ?>
 											<td class="number id" value="<?= $country->id ?>"><?= h($country->id) ?><a name="<?= $country->id ?>"></a></td>
 <?php } ?>
-											<td class="string name" value="<?= $country->name ?>"><?= h($country->name) ?></td>
-											<td class="string name-hu" value="<?= $country->name_hu ?>"><?= h($country->name_hu) ?></td>
-											<td class="string short-name" value="<?= $country->short_name ?>"><?= h($country->short_name) ?></td>
+											<td class="actions">
+<?php if($config['show_button_view']){ ?>
+												<?= $this->Html->link('<i class="fa fa-eye"></i>', ['action' => 'view', $country->id], ['escape' => false, 'role' => 'button', 'class' => 'btn btn-warning btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => __('View this item'), 'data-original-title' => __('View this item')]) ?>
+<?php } ?>
+											</td>
+											<td class="string name" value="<?= $country->name ?>">
+												<b><?= h($country->name) ?></b> [<?= h($country->short_name) ?>]<br>
+												<?= h($country->name_hu) ?>
+											</td>
 											<td class="datetime last-used" value="<?= $country->last_used ?>"><?= h($country->last_used) ?></td>
 <?php if($config['show_pos']){ ?>
 											<td class="number pos" value="<?= $country->pos ?>"><?= h($country->pos) ?></td>
@@ -128,9 +136,9 @@ $config = array_merge($global_config, $local_config);
 <?php if($config['show_button_view'] || $config['show_button_edit'] || $config['show_button_delete'] ){ ?>
 
 											<td class="actions">
-<?php if($config['show_button_view']){ ?>
+<?php /* if($config['show_button_view']){ ?>
 												<?= $this->Html->link('<i class="fa fa-eye"></i>', ['action' => 'view', $country->id], ['escape' => false, 'role' => 'button', 'class' => 'btn btn-warning btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => __('View this item'), 'data-original-title' => __('View this item')]) ?>
-<?php } ?>
+<?php } */ ?>
 
 <?php if($config['show_button_edit']){ ?>
 												<?= $this->Html->link('<i class="fa fa-edit"></i>', ['action' => 'edit', $country->id], ['escape' => false, 'role' => 'button', 'class' => 'btn btn-primary btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => __('Edit this item'), 'data-original-title' => __('Edit this item')]) ?>
