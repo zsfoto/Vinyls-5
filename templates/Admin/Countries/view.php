@@ -160,7 +160,11 @@ $config = array_merge($global_config, $local_config);
 									<nav>
 										<div class="nav nav-tabs mt-1" id="nav-tab" role="tablist">
 <?php if (!empty($country->albums)): ?>
-											<button class="nav-link active" id="nav-albums-tab" data-bs-toggle="tab" data-bs-target="#nav-albums" type="button" role="tab" aria-controls="nav-albums" aria-selected="true">
+											<button class="nav-link active" id="nav-thumbs-tab" data-bs-toggle="tab" data-bs-target="#nav-thumbs" type="button" role="tab" aria-controls="nav-thumbs" aria-selected="true">
+												<?= __('Thumbnails') ?>
+											</button>
+
+											<button class="nav-link" id="nav-albums-tab" data-bs-toggle="tab" data-bs-target="#nav-albums" type="button" role="tab" aria-controls="nav-albums" aria-selected="true">
 												<?= __('Albums') ?>
 											</button>
 <?php endif ?>
@@ -176,7 +180,67 @@ $config = array_merge($global_config, $local_config);
 
 <?php if (!empty($country->albums)): ?>
 
-									<div class="tab-pane fade show active p-0" id="nav-albums" role="tabpanel" aria-labelledby="nav-albums-tab" tabindex="0">
+
+									<div class="tab-pane fade show active p-0" id="nav-thumbs" role="tabpanel" aria-labelledby="nav-thumbs-tab" tabindex="0">
+									
+									
+									  <div class="album py-5 bg-light">
+										<div class="container">
+										  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
+											<?php foreach ($country->albums as $albums) : ?>
+											<div class="col">
+											  <div class="card shadow-sm vh-50">
+												<img class="img-fluid img-thumbnail card-img-top" width="100%" height="225" src="<?= $albums->thumb ?>" alt="<?= $albums->name ?>">
+<?php /*
+												<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+*/ ?>
+
+												<div class="card-body">
+												  <p class="card-text"><b><?= $albums->artists_sort ?> (<?= $albums->released ?>)</b><br><?= $albums->name ?></p>
+												  <div class="d-flex justify-content-between align-items-center">
+													<div class="btn-group">
+													  <?= $this->Html->link('<i class="fa fa-eye"></i> ' . __('Details'), ['controller' => 'Albums', 'action' => 'view', $albums->id], ["escape" => false, "role" => "button",  "class" => "btn btn-sm btn-outline-secondary", "data-toggle" => "tooltip", "data-placement" => "top", "title" => __('View this item'), "data-original-title" => ""]) ?><!-- view button -->
+													  <?php //= $this->Html->link('<i class="fa fa-eye"></i>', ['controller' => 'Albums', 'action' => 'view', $albums->id], ["escape" => false, "role" => "button",  "class" => "btn btn-sm btn-outline-secondary", "data-toggle" => "tooltip", "data-placement" => "top", "title" => __('View this item'), "data-original-title" => ""]) ?><!-- view button -->
+													</div>
+													<small class="text-muted fw-bold"><?= $albums->laci_price != '' ? h($albums->laci_price) . ' Ft' : '' ?></small>
+												  </div>
+												</div>
+											  </div>
+											</div>
+											<?php endforeach ?>
+										  </div>
+										</div>									
+									  </div>									
+
+<?php /*
+										<div class="container">
+											<div class="row text-center text-lg-start">
+												<?php foreach ($country->albums as $albums) : ?>
+
+												<div class="col-lg-2 col-md-4 col-6">
+													<a href="#" class="d-block mb-4 h-100">
+														<img class="img-fluid img-thumbnail" src="<?= $albums->thumb ?>" alt="<?= $albums->name ?>">
+													</a>
+												</div>
+
+												<?php endforeach ?>
+											</div>
+										</div>
+*/ ?>
+
+									</div><!-- /tab pane -->
+									
+									
+<?php /*
+	#######################################################################################################################################
+	#######################################################################################################################################
+	#######################################################################################################################################
+	#######################################################################################################################################
+	#######################################################################################################################################
+*/ ?>
+
+
+									<div class="tab-pane fade show p-0" id="nav-albums" role="tabpanel" aria-labelledby="nav-albums-tab" tabindex="0">
 
 										<table class="table table-responsive-xl table-hover table-striped" style="">
 											<thead class="thead-info">
@@ -246,6 +310,8 @@ $config = array_merge($global_config, $local_config);
 										</table>
 
 									</div><!-- /tab pane -->
+
+
 <?php endif ?>
 
 								</div><!-- /tab content -->

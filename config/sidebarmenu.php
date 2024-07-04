@@ -32,17 +32,17 @@ return [
 					//],
 					//[
 					//	'type' 		=> 'submenu',
-					//	'title'		=> __('Tables'),
+					//	'title'		=> __('Albums'),
 					//	'icon'		=> 'fa fa-fw fa-table',
 					//	'items'		=> [
 					//		[
-					//			'title' 		=> __('Posts'),
-					//			'controller' 	=> 'Posts',
+					//			'title' 		=> __('Albums'),
+					//			'controller' 	=> 'Albums',
 					//			'action' 		=> 'index',								
 					//		],
 					//		[
-					//			'title' 		=> __('Categories'),
-					//			'controller' 	=> 'Categories',
+					//			'title' 		=> __('Countries'),
+					//			'controller' 	=> 'Countries',
 					//			'action' 		=> 'index',								
 					//		],
 					//	]
